@@ -1,0 +1,25 @@
+version: '3.7'
+
+services:
+  postgres:
+    image: postgres:12.11-alpine
+    restart: unless-stopped
+    volumes:
+      - db-postgres:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_DB=omegaDB
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=omega123
+      - TZ=America/Araguaina
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  db-postgres:
+    driver: local
