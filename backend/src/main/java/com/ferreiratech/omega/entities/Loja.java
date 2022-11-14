@@ -18,8 +18,8 @@ import java.util.Objects;
 @Setter
 @ToString
 @RequiredArgsConstructor
-@Table(name = "login", schema = "schema_omega")
-public class Login {
+@Table(name = "loja", schema = "schema_omega")
+public class Loja {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,8 +31,8 @@ public class Login {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Login login = (Login) o;
-        return id != null && Objects.equals(id, login.id);
+        Loja loja = (Loja) o;
+        return id != null && Objects.equals(id, loja.id);
     }
 
     @Override

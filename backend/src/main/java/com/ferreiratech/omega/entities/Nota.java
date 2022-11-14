@@ -6,7 +6,6 @@ import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.Hibernate;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -15,7 +14,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import java.util.Date;
 import java.util.Objects;
@@ -34,7 +32,7 @@ public class Nota {
 
     @ManyToOne()
     @JoinColumn(name = "loja", referencedColumnName = "id")
-    private Login loja;
+    private Loja loja;
 
     private double valor;
     private String  comprador;
@@ -48,8 +46,8 @@ public class Nota {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Nota login = (Nota) o;
-        return id != null && Objects.equals(id, login.id);
+        Nota loja = (Nota) o;
+        return id != null && Objects.equals(id, loja.id);
     }
 
     @Override

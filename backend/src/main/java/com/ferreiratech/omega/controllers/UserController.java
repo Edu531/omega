@@ -1,11 +1,12 @@
 package com.ferreiratech.omega.controllers;
 
-import com.ferreiratech.omega.entities.Login;
+import com.ferreiratech.omega.entities.Loja;
 import com.ferreiratech.omega.entities.Nota;
-import com.ferreiratech.omega.services.LoginService;
+import com.ferreiratech.omega.services.LojaService;
 import com.ferreiratech.omega.services.NotaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.UrlResource;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +22,7 @@ import java.util.List;
 public class UserController {
 
     @Autowired
-    LoginService loginService;
+    LojaService lojaService;
 
     @Autowired
     NotaService notaService;
@@ -31,9 +32,9 @@ public class UserController {
         return "teste";
     }
 
-    @PostMapping(value = "/login")
-    public Boolean login(@RequestBody Login login) {
-        return loginService.validarSenha(login.getCnpj(), login.getSenha());
+    @PostMapping(value = "/loja")
+    public Boolean loja(@RequestBody Loja loja) {
+        return lojaService.validarSenha(loja.getCnpj(), loja.getSenha());
     }
 
     @GetMapping(value = "/arquivo")
